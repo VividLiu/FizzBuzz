@@ -19,7 +19,8 @@ function FizzBuzz(end){
 
 var endNum = 0;
 var result = [];
-$("#submit").click(function(){
+$("#fizzbuzz").submit(function(e){
+	e.preventDefault();
 	endNum = $("#enterNum").val();
 
 	//validation
@@ -32,10 +33,12 @@ $("#submit").click(function(){
 	endNum = 0 + endNum;
 	result = FizzBuzz(endNum);
 
-	var content;
+	var content = "";
+
+	console.log(content)
 	for(var i = 0; i < result.length; i++){
-		content = "<li>"+ result[i] +"</li>"
-		$("#result").append(content);	
+		content += "<li>"+ result[i] +"</li>";
 	}
+	$("#result").html(content);
 	
 })
