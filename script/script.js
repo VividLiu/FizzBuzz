@@ -21,11 +21,15 @@ var endNum = 0;
 var result = [];
 $("#submit").click(function(){
 	endNum = $("#enterNum").val();
-	
-	if(endNum == ""){
+
+	//validation
+	var regEx = /^\d+$/;
+	if(!regEx.test(endNum)){
+		alert("Please enter integer number.");
 		return false;
 	}
 
+	endNum = 0 + endNum;
 	result = FizzBuzz(endNum);
 
 	var content;
